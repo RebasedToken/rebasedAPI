@@ -1,5 +1,7 @@
 # rebasedInfo
 rebased info api
+## prereq
+maven
 ## Build
 mvn clean install
 ## Run
