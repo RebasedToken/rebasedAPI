@@ -1,7 +1,7 @@
 # rebasedInfo
 rebased info api
-## prereq
-maven
+## Prereq
+maven,jdk 8
 ## Build
 mvn clean install
 ## Run
