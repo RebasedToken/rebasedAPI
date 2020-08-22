@@ -58,7 +58,14 @@ public class InfoController {
 
     private TokenSupply fetchTokenSupply() {
         String reqUri = String.format(totalSupplyUri, rebContract, getApiKey());
-        return restTemplate.getForObject(reqUri, TokenSupply.class);
+        TokenSupply supply = restTemplate.getForObject(reqUri, TokenSupply.class);
+        if(supply.getStatus().equals("1")) {
+            String rawSupply = supply.getResult();
+            supply.setResult(rawSupply.substring(0,rawSupply.length()-9)
+                    + '.'
+                    + rawSupply.substring(rawSupply.length()-9,rawSupply.length()));
+        }
+        return  supply;
     }
 
     @GetMapping("mcap")
